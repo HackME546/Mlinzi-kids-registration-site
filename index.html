@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mlinzi Kids — Child Safety Platform</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="brand" href="#" onclick="showPage('home')">
+    <div class="brand-icon">
+      
+    </div>
+    Mlinzi Kids
+  </a>
+  <div class="nav-links">
+    <span id="nav-username" style="font-size:14px;color:var(--text-secondary);display:none;"></span>
+    <button class="btn-ghost" onclick="showPage('login')" id="nav-login">Login</button>
+    <button class="btn-primary" onclick="showPage('register')" id="nav-register">Get Started</button>
+    <button class="btn-ghost" onclick="logout()" id="nav-logout" style="display:none;">Logout</button>
+    <button class="btn-primary" onclick="showPage('dashboard')" id="nav-dash" style="display:none;">Dashboard</button>
+  </div>
+</nav>
+
+<!-- HOME PAGE -->
+<div class="page active" id="page-home">
+  <section class="hero">
+    <div>
+      <div class="hero-tag">Built for all families</div>
+      <h1>Keep your child <span>safe & visible</span> at all times</h1>
+      <p>Mlinzi Kids is a real-time child safety platform that lets parents and guardians track location, receive emergency alerts, and set safe zones — all from one dashboard.</p>
+      <div class="hero-btns">
+        <button class="btn-primary btn-lg" onclick="showPage('register')">Create Free Account</button>
+        <button class="btn-ghost btn-lg" onclick="showPage('login')">Sign In</button>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="map-mock">
+        <div class="map-pin"><span>📍</span></div>
+      </div>
+      <p style="font-size:13px;font-weight:600;margin-bottom:8px;">Live Location — Amani Waweru</p>
+      <div class="status-row">
+        <div class="status-pill pill-safe"><div class="dot dot-safe"></div> Safe Zone</div>
+        <div class="status-pill pill-loc"><div class="dot dot-loc"></div> GPS Active</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <p class="section-label">Features</p>
+    <h2 class="section-title">Everything parents need</h2>
+    <p class="section-sub">Real-time tools designed around the safety of your child, every day.</p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feat-icon teal">ZZZZZ</div>
+        <h3>Live Location</h3>
+        <p>Monitor your child's GPS location in real time, updated every 30 seconds from their safety button device.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon red">ZZZZZ</div>
+        <h3>Emergency Alerts</h3>
+        <p>Receive instant push notifications the moment your child presses the panic button on their device.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon green">ZZZZZ</div>
+        <h3>Safe Zones</h3>
+        <p>Draw approved areas like home, school, or a relative's home. Get alerted if they step outside.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon amber">ZZZZZ</div>
+        <h3>Multiple Guardians</h3>
+        <p>Add co-parents, grandparents, or trusted guardians — each gets their own account and access.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2025 Mlinzi Kids. Built for child safety.</span>
+    <span>Nairobi, Kenya 🇰🇪</span>
+  </footer>
+</div>
+
+<!-- LOGIN PAGE -->
+<div class="page" id="page-login">
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="brand-icon">ZZZZ</div>
+        <h2>Welcome back</h2>
+        <p>Sign in to your Mlinzi Kids account</p>
+      </div>
+      <div class="alert alert-error" id="login-error"></div>
+      <div class="form-group">
+        <label for="login-email">Email address</label>
+        <input type="email" id="login-email" placeholder="you@example.com" />
+      </div>
+      <div class="form-group">
+        <label for="login-pass">Password</label>
+        <input type="password" id="login-pass" placeholder="••••••••" />
+      </div>
+      <button class="btn-primary btn-full" onclick="doLogin()">Sign In</button>
+      <div class="auth-divider">or</div>
+      <div class="auth-switch">
+        Don't have an account? <a onclick="showPage('register')">Create one free</a>
+      </div>
+      <div class="auth-switch" style="margin-top:0.5rem;">
+        <a onclick="demoLogin()" style="color:var(--text-secondary);font-size:13px;">Use demo account →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REGISTER PAGE -->
+<div class="page" id="page-register">
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="brand-icon">ZZZZ</div>
+        <h2>Create your account</h2>
+        <p>Join thousands of Kenyan families</p>
+      </div>
+      <div class="step-indicator">
+        <div class="step-dot active" id="sdot-1"></div>
+        <div class="step-dot" id="sdot-2"></div>
+        <div class="step-dot" id="sdot-3"></div>
+      </div>
+      <div class="alert alert-error" id="reg-error"></div>
+      <div class="alert alert-success" id="reg-success"></div>
+
+      <!-- Step 1: Basic Info -->
+      <div class="form-step active" id="step-1">
+        <div class="input-row">
+          <div class="form-group">
+            <label>First name</label>
+            <input type="text" id="reg-first" placeholder="Amani" />
+          </div>
+          <div class="form-group">
+            <label>Last name</label>
+            <input type="text" id="reg-last" placeholder="Waweru" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Phone number</label>
+          <input type="tel" id="reg-phone" placeholder="+254 712 345 678" />
+        </div>
+        <div class="form-group">
+          <label>Account type</label>
+          <select id="reg-role">
+            <option value="">Select your role…</option>
+            <option value="parent">Parent</option>
+            <option value="guardian">Legal Guardian</option>
+            <option value="grandparent">Grandparent / Extended Family</option>
+          </select>
+        </div>
+        <button class="btn-primary btn-full" onclick="nextStep(2)">Continue →</button>
+      </div>
+
+      <!-- Step 2: Account Credentials -->
+      <div class="form-step" id="step-2">
+        <div class="form-group">
+          <label>Email address</label>
+          <input type="email" id="reg-email" placeholder="you@example.com" />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="reg-pass" placeholder="At least 8 characters" />
+        </div>
+        <div class="form-group">
+          <label>Confirm password</label>
+          <input type="password" id="reg-pass2" placeholder="Repeat password" />
+        </div>
+        <div style="display:flex;gap:10px;">
+          <button class="btn-ghost" style="flex:1;" onclick="nextStep(1)">← Back</button>
+          <button class="btn-primary" style="flex:2;" onclick="nextStep(3)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Connect Child (optional) -->
+      <div class="form-step" id="step-3">
+        <p style="font-size:13px;color:var(--text-secondary);margin-bottom:1rem;">Optional: Connect a child's safety device now, or do this later in your dashboard.</p>
+        <div class="form-group">
+          <label>Child's name</label>
+          <input type="text" id="reg-child-name" placeholder="e.g. Amani" />
+        </div>
+        <div class="form-group">
+          <label>Device / button code</label>
+          <input type="text" id="reg-device" placeholder="e.g. MK-2024-XXXX" />
+        </div>
+        <div style="display:flex;gap:10px;">
+          <button class="btn-ghost" style="flex:1;" onclick="nextStep(2)">← Back</button>
+          <button class="btn-primary" style="flex:2;" onclick="doRegister()">Create Account ✓</button>
+        </div>
+        <p style="text-align:center;font-size:12px;color:var(--text-secondary);margin-top:10px;">
+          <a onclick="doRegister()" style="cursor:pointer;color:var(--accent);">Skip for now and finish →</a>
+        </p>
+      </div>
+
+      <div class="auth-switch" style="margin-top:1.25rem;">
+        Already have an account? <a onclick="showPage('login')">Sign in</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DASHBOARD PAGE -->
+<div class="page" id="page-dashboard">
+  <div class="dashboard">
+    <div class="dash-header">
+      <div>
+        <h2 id="dash-greeting">Good morning </h2>
+        <p id="dash-sub">Here's the status of your children today.</p>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <button class="btn-outline" onclick="showPage('accounts')">👥 All Accounts</button>
+        <button class="btn-primary btn-sm" onclick="toggleAddChild()">+ Add Child</button>
+      </div>
+    </div>
+
+    <!-- Add child inline form -->
+    <div class="add-child-form" id="add-child-form">
+      <h4>Connect a new child device</h4>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+        <div>
+          <label style="font-size:13px;font-weight:500;display:block;margin-bottom:5px;">Child's name</label>
+          <input type="text" id="new-child-name" placeholder="e.g. Zawadi" />
+        </div>
+        <div>
+          <label style="font-size:13px;font-weight:500;display:block;margin-bottom:5px;">Device code</label>
+          <input type="text" id="new-device-code" placeholder="MK-2024-XXXX" />
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <button class="btn-primary btn-sm" onclick="addChild()">Connect Device</button>
+        <button class="btn-ghost btn-sm" onclick="toggleAddChild()">Cancel</button>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card teal">
+        <div class="stat-label">Children</div>
+        <div class="stat-value" id="stat-children">2</div>
+        <div class="stat-sub">connected devices</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-label">Safe Zones</div>
+        <div class="stat-value">3</div>
+        <div class="stat-sub">active zones</div>
+      </div>
+      <div class="stat-card amber">
+        <div class="stat-label">Alerts today</div>
+        <div class="stat-value">1</div>
+        <div class="stat-sub">zone exit at 7:42 AM</div>
+      </div>
+    </div>
+
+    <div class="dash-grid">
+      <div class="dash-panel">
+        <div class="panel-header">
+          <h3>Children</h3>
+          <span class="badge badge-safe">All Safe</span>
+        </div>
+        <div id="children-list">
+          <div class="child-item">
+            <div class="child-avatar av-teal">AW</div>
+            <div class="child-info">
+              <div class="child-name">Amani Waweru</div>
+              <div class="child-loc">(ZZZZ) Westlands, Nairobi · 2 min ago</div>
+            </div>
+            <div class="child-actions">
+              <button class="btn-outline" style="padding:5px 12px;font-size:12px;" onclick="openChildMap('Amani Waweru')">View Map</button>
+              <button class="child-delete-btn" onclick="deleteChild('Amani Waweru')">Delete</button>
+            </div>
+            <div class="child-status safe">Safe</div>
+          </div>
+          <div class="child-item">
+            <div class="child-avatar av-green">ZW</div>
+            <div class="child-info">
+              <div class="child-name">Zawadi Waweru</div>
+              <div class="child-loc">(ZZZZ) Lavington Primary School</div>
+            </div>
+            <div class="child-actions">
+              <button class="btn-outline" style="padding:5px 12px;font-size:12px;" onclick="openChildMap('Zawadi Waweru')">View Map</button>
+              <button class="child-delete-btn" onclick="deleteChild('Zawadi Waweru')">Delete</button>
+            </div>
+            <div class="child-status safe">Safe</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-panel">
+        <div class="panel-header">
+          <h3>Recent alerts</h3>
+          <span class="badge badge-alert">1 today</span>
+        </div>
+        <div class="alert-item">
+          <div class="alert-dot dot-amber"></div>
+          <div>
+            <div class="alert-msg">Amani left school zone</div>
+            <div class="alert-time">Today, 7:42 AM · Resolved</div>
+          </div>
+        </div>
+        <div class="alert-item">
+          <div class="alert-dot dot-teal"></div>
+          <div>
+            <div class="alert-msg">Zawadi arrived at school ✓</div>
+            <div class="alert-time">Today, 7:18 AM</div>
+          </div>
+        </div>
+        <div class="alert-item">
+          <div class="alert-dot dot-teal"></div>
+          <div>
+            <div class="alert-msg">Amani arrived home safely ✓</div>
+            <div class="alert-time">Yesterday, 5:04 PM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAP PAGE -->
+<div class="page" id="page-map">
+  <div class="dashboard">
+    <div class="map-header">
+      <div>
+        <h3 id="map-child-name">Child's Location</h3>
+        <p id="map-child-location" style="color:var(--text-secondary);font-size:14px;margin-top:4px;"></p>
+      </div>
+      <button class="btn-ghost" onclick="showPage('dashboard')">← Back</button>
+    </div>
+    <div class="map-panel">
+      <canvas id="map-canvas" class="map-canvas"></canvas>        <button class="map-btn" onclick="zoomMap(1.2)" title="Zoom in">+</button>
+        <button class="map-btn" onclick="zoomMap(0.8)" title="Zoom out">−</button>
+        <button class="map-btn" onclick="resetMap()" title="Reset">🔄</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ACCOUNTS PAGE -->
+<div class="page" id="page-accounts">
+  <div class="dashboard">
+    <div class="dash-header">
+      <div>
+        <h2>All accounts</h2>
+        <p>Registered parent and guardian accounts on Mlinzi Kids.</p>
+      </div>
+      <button class="btn-primary btn-sm" onclick="showPage('register')">+ New Account</button>
+    </div>
+    <div class="accounts-panel">
+      <div class="accounts-panel-header">
+        <h3>Users <span id="user-count" style="color:var(--text-secondary);font-weight:400;font-size:13px;"></span></h3>
+        <button class="btn-ghost" onclick="showPage('dashboard')" style="font-size:13px;">← Back to dashboard</button>
+      </div>
+      <div class="table-wrap">
+        <table class="accounts-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Children</th>
+              <th>Joined</th>
+            </tr>
+          </thead>
+          <tbody id="accounts-tbody">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
