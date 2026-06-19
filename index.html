@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mlinzi Kids — Child Safety Platform</title>
 <link rel="stylesheet" href="style.css" />
+<!--favicon-->
+<link rel="icon" type="image/x-icon" href="images/mlinzi kids.jpeg">
 </head>
 <body>
 
@@ -12,9 +14,9 @@
 <nav>
   <a class="brand" href="#" onclick="showPage('home')">
     <div class="brand-icon">
-      
+      <img src="images/mlinzi kids.jpeg" alt="Mlinzi Kids Logo" />
     </div>
-    Mlinzi Kids
+    <b>Mlinzi Kids</b>
   </a>
   <div class="nav-links">
     <span id="nav-username" style="font-size:14px;color:var(--text-secondary);display:none;"></span>
@@ -31,7 +33,8 @@
     <div>
       <div class="hero-tag">Built for all families</div>
       <h1>Keep your child <span>safe & visible</span> at all times</h1>
-      <p>Mlinzi Kids is a real-time child safety platform that lets parents and guardians track location, receive emergency alerts, and set safe zones — all from one dashboard.</p>
+      <p>Mlinzi Kids is a real-time child safety platform that lets parents and guardians
+         track location, receive emergency alerts, and set safe zones all from one dashboard.</p>
       <div class="hero-btns">
         <button class="btn-primary btn-lg" onclick="showPage('register')">Create Free Account</button>
         <button class="btn-ghost btn-lg" onclick="showPage('login')">Sign In</button>
@@ -39,7 +42,12 @@
     </div>
     <div class="hero-visual">
       <div class="map-mock">
-        <div class="map-pin"><span>📍</span></div>
+        <div class="map-pin" aria-label="Child location marker">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 2C8.134 2 5 5.134 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.866-3.134-7-7-7Z" fill="#fff"/>
+            <circle cx="12" cy="9" r="3" fill="#0c6eab"/>
+          </svg>
+        </div>
       </div>
       <p style="font-size:13px;font-weight:600;margin-bottom:8px;">Live Location — Amani Waweru</p>
       <div class="status-row">
@@ -55,22 +63,42 @@
     <p class="section-sub">Real-time tools designed around the safety of your child, every day.</p>
     <div class="feature-grid">
       <div class="feature-card">
-        <div class="feat-icon teal">ZZZZZ</div>
+        <div class="feat-icon teal" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C8.134 2 5 5.134 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.866-3.134-7-7-7Z" fill="#088096"/>
+            <circle cx="12" cy="9" r="3" fill="#fff"/>
+          </svg>
+        </div>
         <h3>Live Location</h3>
         <p>Monitor your child's GPS location in real time, updated every 30 seconds from their safety button device.</p>
       </div>
       <div class="feature-card">
-        <div class="feat-icon red">ZZZZZ</div>
+        <div class="feat-icon red" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2Z" fill="#E24B4A"/>
+            <path d="M18 16V11c0-3.31-2.69-6-6-6S6 7.69 6 11v5l-2 2v1h16v-1l-2-2ZM8 11c0-2.21 1.79-4 4-4s4 1.79 4 4v5H8v-5Z" fill="#fff"/>
+          </svg>
+        </div>
         <h3>Emergency Alerts</h3>
         <p>Receive instant push notifications the moment your child presses the panic button on their device.</p>
       </div>
       <div class="feature-card">
-        <div class="feat-icon green">ZZZZZ</div>
+        <div class="feat-icon green" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2l7 4v6.5c0 4.985-3.584 9.855-7 11-3.416-1.145-7-6.015-7-11V6l7-4Z" fill="#34b2cb"/>
+            <path d="M10 13.5l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
         <h3>Safe Zones</h3>
         <p>Draw approved areas like home, school, or a relative's home. Get alerted if they step outside.</p>
       </div>
       <div class="feature-card">
-        <div class="feat-icon amber">ZZZZZ</div>
+        <div class="feat-icon amber" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4Z" fill="#BA7517"/>
+            <path d="M4 20c0-2.21 1.79-4 4-4h8c2.21 0 4 1.79 4 4v1H4v-1Z" fill="#fff" opacity="0.9"/>
+          </svg>
+        </div>
         <h3>Multiple Guardians</h3>
         <p>Add co-parents, grandparents, or trusted guardians — each gets their own account and access.</p>
       </div>
@@ -78,8 +106,8 @@
   </section>
 
   <footer>
-    <span>© 2025 Mlinzi Kids. Built for child safety.</span>
-    <span>Nairobi, Kenya 🇰🇪</span>
+    <span>© 2026 Mlinzi Kids. Built for child safety.</span>
+    <span>Mombasa, Kenya 🇰🇪</span>
   </footer>
 </div>
 
@@ -88,8 +116,7 @@
   <div class="auth-wrapper">
     <div class="auth-card">
       <div class="auth-header">
-        <div class="brand-icon">ZZZZ</div>
-        <h2>Welcome back</h2>
+          <h2>Welcome back</h2>
         <p>Sign in to your Mlinzi Kids account</p>
       </div>
       <div class="alert alert-error" id="login-error"></div>
@@ -118,7 +145,6 @@
   <div class="auth-wrapper">
     <div class="auth-card">
       <div class="auth-header">
-        <div class="brand-icon">ZZZZ</div>
         <h2>Create your account</h2>
         <p>Join thousands of Kenyan families</p>
       </div>
@@ -266,12 +292,12 @@
           <div class="child-item">
             <div class="child-avatar av-teal">AW</div>
             <div class="child-info">
-              <div class="child-name">Amani Waweru</div>
-              <div class="child-loc">(ZZZZ) Westlands, Nairobi · 2 min ago</div>
+              <div class="child-name">Amani Ali</div>
+              <div class="child-loc"><span class="text-icon" aria-hidden="true">📍</span>Nyali, Mombasa · 2 min ago</div>
             </div>
             <div class="child-actions">
-              <button class="btn-outline" style="padding:5px 12px;font-size:12px;" onclick="openChildMap('Amani Waweru')">View Map</button>
-              <button class="child-delete-btn" onclick="deleteChild('Amani Waweru')">Delete</button>
+              <button class="btn-outline" style="padding:5px 12px;font-size:12px;" onclick="openChildMap('Amani Ali')">View Map</button>
+              <button class="child-delete-btn" onclick="deleteChild('Amani Ali')">Delete</button>
             </div>
             <div class="child-status safe">Safe</div>
           </div>
@@ -279,7 +305,7 @@
             <div class="child-avatar av-green">ZW</div>
             <div class="child-info">
               <div class="child-name">Zawadi Waweru</div>
-              <div class="child-loc">(ZZZZ) Lavington Primary School</div>
+              <div class="child-loc"><span class="text-icon" aria-hidden="true">📍</span>Lavington Primary School</div>
             </div>
             <div class="child-actions">
               <button class="btn-outline" style="padding:5px 12px;font-size:12px;" onclick="openChildMap('Zawadi Waweru')">View Map</button>

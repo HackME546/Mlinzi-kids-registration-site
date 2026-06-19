@@ -1,16 +1,16 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --green-50: #EAF3DE;
-    --green-100: #C0DD97;
-    --green-400: #8ed5e3;
+    --green-50: #7cdee9;
+    --green-100: #031f21;
+    --green-400: #34b2cb;
     --green-600: #6097b0;
-    --green-800: #178f9a;
-    --teal-50: #53bfd2;
-    --teal-100: #51f4f4;
-    --teal-400: #047ac4;
-    --teal-600: #0f6e5e;
-    --teal-800: #0f6f74;
+    --green-800: #021214;
+    --teal-50: #7eccda;
+    --teal-100: #061e1e;
+    --teal-400: #088096;
+    --teal-600: #073b39;
+    --teal-800: #4195ea;
     --amber-50: #FAEEDA;
     --amber-400: #BA7517;
     --amber-800: #633806;
@@ -21,13 +21,13 @@
     --gray-100: #D3D1C7;
     --gray-400: #888780;
     --gray-600: #5F5E5A;
-    --gray-800: #444441;
-    --bg: #FAFAF8;
-    --surface: #284546;
-    --border: rgba(0,0,0,0.10);
+    --gray-800: #1e8cb4;
+    --bg: #aed8db;
+    --surface: #b1ced2;
+    --border: rgba(105, 181, 195, 0.1);
     --text-primary: #1A1A18;
     --text-secondary: #5F5E5A;
-    --accent: #07676e;
+    --accent: #0c6eab;
     --accent-dark: #1e5a63;
     --radius-sm: 8px;
     --radius-md: 12px;
@@ -69,12 +69,17 @@
     text-decoration: none;
   }
   .brand-icon {
-    width: 36px; height: 36px;
+    width: 10px; height: 10px;
     background: var(--teal-400);
     border-radius: 10px;
     display: flex; align-items: center; justify-content: center;
-    color: #fff; font-size: 18px;
+    color: #5f0505; font-size: 18px;
   }
+   .brand-icon img { 
+    width: 400%; height: 400%; 
+   object-fit: cover;
+    border-radius: 10px; }
+
   .nav-links { display: flex; gap: 8px; align-items: center; }
   .btn-ghost {
     background: none; border: 1px solid var(--border);
@@ -239,6 +244,15 @@
     display: flex; align-items: center; justify-content: center;
     font-size: 22px;
     margin-bottom: 1rem;
+  }
+  .feat-icon svg {
+    width: 24px; height: 24px;
+  }
+  .text-icon {
+    display: inline-flex;
+    margin-right: 6px;
+    font-size: 0.95rem;
+    vertical-align: middle;
   }
   .feat-icon.teal { background: var(--teal-50); }
   .feat-icon.green { background: var(--green-50); }
